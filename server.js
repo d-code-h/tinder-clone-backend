@@ -36,6 +36,7 @@ app.post('/tinder/cards', async (req, res) => {
 app.get('/tinder/cards', async (req, res) => {
   try {
     await client.connect();
+    console.log('Connected Successfully to DB');
     const db = client.db(dbName);
     const store = await db.collection('cards').find({}).toArray();
     console.log(store);
