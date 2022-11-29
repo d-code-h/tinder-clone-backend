@@ -65,6 +65,6 @@ app.delete('/tinder/cards', async (req, res) => {
 });
 
 // Listener
-app.listen(6969, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
