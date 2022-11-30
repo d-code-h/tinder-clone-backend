@@ -20,7 +20,6 @@ app.post('/tinder/cards', async (req, res) => {
   console.log(req.body);
   const dbCard = req.body;
   try {
-    await client.connect();
     const db = client.db(dbName);
     const store = await db.collection('cards').insertOne(dbCard);
     console.log(store);
@@ -65,6 +64,15 @@ app.delete('/tinder/cards', async (req, res) => {
 });
 
 // Listener
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
+(async () => {
+  try {
+    await client.connect();
+    console.log('Connected Successfully to DB');
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+})();
