@@ -4,7 +4,7 @@ import cors from 'cors';
 const app = express();
 const url = process.env.DB_URL;
 
-const dbName = 'txinder-clone';
+const dbName = process.env.DB_NAME;
 const client = new MongoClient(url);
 const PORT = process.env.PORT;
 
