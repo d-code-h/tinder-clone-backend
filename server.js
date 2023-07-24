@@ -2,11 +2,11 @@ import express from 'express';
 import { MongoClient } from 'mongodb';
 import cors from 'cors';
 const app = express();
-const url = process.env.MONGODB || 'mongodb://127.0.0.1:27017';
+const url = process.env.DB_URL;
 
-const dbName = 'tinder-clone';
+const dbName = 'txinder-clone';
 const client = new MongoClient(url);
-const PORT = process.env.PORT || 6969;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
